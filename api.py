@@ -8,11 +8,11 @@ app = Flask(__name__)
 api = Api(app)
 
 
-api.add_resource(RandomNumberAPI, '/api/v1.0/random')
-api.add_resource(RandomNumberAPI, '/api/v1.0/randomnumber')
-api.add_resource(RandomStringAPI, '/api/v1.0/randomstring')
-api.add_resource(RandomUUIDAPI, '/api/v1.0/randomuuid')
-api.add_resource(RandomUUIDAPI, '/api/v1.0/uuid')
+api.add_resource(RandomNumberAPI, '/api/v1.0/random', endpoint='random')
+api.add_resource(RandomNumberAPI, '/api/v1.0/randomnumber', endpoint='randomnumber')
+api.add_resource(RandomStringAPI, '/api/v1.0/randomstring', endpoint='randomstring')
+api.add_resource(RandomUUIDAPI, '/api/v1.0/randomuuid', endpoint='randomuuid')
+api.add_resource(RandomUUIDAPI, '/api/v1.0/uuid', endpoint='uuid')
 
 
 if __name__ == '__main__':

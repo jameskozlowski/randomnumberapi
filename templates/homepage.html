@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Random Number API</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <style>
+    body {
+        font: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        line-height: 1.4285;
+        letter-spacing: 1px;
+        font-weight: 100;
+        line-height: 1.4285;
+    }
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- github ribbon -->
+    <a href="https://github.com/jameskozlowski/randomnumberapi">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub">
+    </a>
+    <!-- main paif -->
+    <div class="container">
+        <h1>Random Number API</h1>
+        <BR><BR>
+        This is a simple api to generate random numbers, random strings and UUID's.
+        the project can be found on <a href="https://github.com/jameskozlowski/randomnumberapi">github</a>
+        <BR>
+        This project was built using Python and the <a href="http://flask.pocoo.org/">FLASK</a> framework
+        <BR><BR>
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Warnning:</span>
+                The pseudo-random generators of this API should not be used for security purposes.
+        </div>
+        <BR>
+
+        <div class="panel panel-success"> 
+            <div class="panel-heading"><B>Request format</B></div> 
+            <div class="panel-body"> 
+                All requests are GET requests.<BR>
+                Options can be url peramaters or sent as JSON in the body of the requests
+                <BR><BR>
+                <B>CURL</B>
+                <div class="well">
+                        curl "http://www.randomnumberapi.com/api/v1.0/random?min=100&max=1000&count=5"
+                </div>
+                <b>Response:</b>
+                <div class="well">[684, 434, 864, 261, 375]</div>
+                OR<BR><BR>
+                <B>JSON</B>
+                <pre>
+{
+    "min": 100,
+    "max": 1000,
+    "count": 5
+}
+                </pre>
+                <B>CURL</B>
+                <div class="well">
+                    curl -H "Content-Type: application/json" -X GET -d '{"min":10, "max":100, "count": 5}' http://www.randomnumberapi.com/api/v1.0/random
+                </div>
+                <b>Response:</b>
+                <div class="well">[684, 434, 864, 261, 375]</div>
+
+            </div>
+        </div>
+
+        <!-- Random Number -->
+        <div class="panel panel-info"> 
+            <div class="panel-heading"><B>Get a random number</B></div> 
+            <div class="panel-body"> 
+                <b>URL</b><BR>
+                http://www.randomnumberapi.com/api/v1.0/random<BR>
+                http://www.randomnumberapi.com/api/v1.0/randomnumber<BR><BR>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Option</th>
+                            <th scope="col">Discription</th>
+                            <th scope="col"><span class="label label-default">Default</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">min</th>
+                            <td>the minumum random number</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">max</th>
+                            <td>the maximum random number</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">count</th>
+                            <td>the number of random numbers to generate (Maximum of 100)</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                <b>Example</b><BR>
+                <div class="well">
+                    http://www.randomnumberapi.com/api/v1.0/random?min=100&max=1000&count=5
+                </div>
+                <b>Response:</b><BR>
+                    <div class="well">
+                        [389, 741, 959, 754, 916]
+                </div>
+            </div> 
+        </div>
+        <!-- End of Random Number -->
+
+        <!-- Random String -->
+        <div class="panel panel-info"> 
+            <div class="panel-heading"><B>Get a random string</B></div> 
+            <div class="panel-body"> 
+                <b>URL</b><BR>
+                http://www.randomnumberapi.com/api/v1.0/randomstring<BR><BR>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Option</th>
+                            <th scope="col">Discription</th>
+                            <th scope="col"><span class="label label-default">Default</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">min</th>
+                            <td>the minumum number of chars in the string (Max 1000)</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">max</th>
+                            <td>the maximum number of chars in the string (Max 1000)</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">count</th>
+                            <td>the number of random strings to generate (Maximum of 100)</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">all</th>
+                            <td>Include numbers and symbols (True/False)</td>
+                            <td>False</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                <b>Example</b><BR>
+                <div class="well">
+                        http://www.randomnumberapi.com/api/v1.0/randomstring?min=5&max=20&count=5
+                </div>
+                <b>Response:</b><BR>
+                    <div class="well">
+                        ["sMierZwjgeBTS", "JsGdgIaBQvKpZKA", "qBhFRSfVEzLmeyV", "sehXFM", "DbGuP"]
+                </div>
+            </div> 
+        </div>
+        <!-- End of Random Number -->
+
+        <!-- Random UUID -->
+        <div class="panel panel-info"> 
+            <div class="panel-heading"><B>Get a random UUID</B></div> 
+            <div class="panel-body"> 
+                <b>URL</b><BR>
+                http://www.randomnumberapi.com/api/v1.0/uuid<BR>
+                http://www.randomnumberapi.com/api/v1.0/randomuuid<BR><BR>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Option</th>
+                            <th scope="col">Discription</th>
+                            <th scope="col"><span class="label label-default">Default</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">count</th>
+                            <td>the number of random numbers to generate (Maximum of 100)</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                <b>Example</b><BR>
+                <div class="well">
+                    www.randomnumberapi.com/api/v1.0/uuid?count=2
+                </div>
+                <b>Response:</b><BR>
+                    <div class="well">
+                        ["333d69ac79cf455abaf1c7eeb76327bb", "7087d9a779e84df19b06c37202bc285d"]
+                </div>
+            </div> 
+        </div>
+        <!-- End of Random UUID -->
+       <BR>
+
+        <HR>
+        Copyright &copy;
+        <script type="text/javascript">
+            var d = new Date()
+            document.write(d.getFullYear())
+        </script>
+        James Kozlowski
+        <BR><BR>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

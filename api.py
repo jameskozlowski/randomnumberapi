@@ -14,6 +14,9 @@ api.add_resource(RandomStringAPI, '/api/v1.0/randomstring', endpoint='randomstri
 api.add_resource(RandomUUIDAPI, '/api/v1.0/randomuuid', endpoint='randomuuid')
 api.add_resource(RandomUUIDAPI, '/api/v1.0/uuid', endpoint='uuid')
 
+@app.route("/")
+def home():  
+    return render_template('homepage.html')
 
 if __name__ == '__main__':
     app.debug = True

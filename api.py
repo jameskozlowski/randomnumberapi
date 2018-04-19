@@ -3,7 +3,7 @@ from flask_restful import Api
 from randomnumberapi import RandomNumberAPI
 from randomstringapi import RandomStringAPI
 from randomuuidapi import RandomUUIDAPI
-
+from randomredditnumberapi import RandomReditNumberAPI
 app = Flask(__name__)
 api = Api(app)
 
@@ -13,6 +13,7 @@ api.add_resource(RandomNumberAPI, '/api/v1.0/randomnumber', endpoint='randomnumb
 api.add_resource(RandomStringAPI, '/api/v1.0/randomstring', endpoint='randomstring')
 api.add_resource(RandomUUIDAPI, '/api/v1.0/randomuuid', endpoint='randomuuid')
 api.add_resource(RandomUUIDAPI, '/api/v1.0/uuid', endpoint='uuid')
+api.add_resource(RandomReditNumberAPI, '/api/v1.0/randomredditnumber', endpoint='randomredditnumber')
 
 @app.route("/")
 def home():  

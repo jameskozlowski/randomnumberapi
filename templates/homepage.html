@@ -44,8 +44,10 @@
         <BR><BR>
         <div class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Warnning:</span>
-                The pseudo-random generators of this API should not be used for security purposes.
+                <span class="sr-only">Warnning: </span>
+                This API uses Pythons SystemRandom functions. as per the Python documentation it
+                Does not rely on software state and sequences are not reproducible. 
+                However the Reddit random function <strong>does</strong> use the python pseudo-random function seeded by reddit
         </div>
         <BR>
 
@@ -126,6 +128,55 @@
             </div> 
         </div>
         <!-- End of Random Number -->
+
+        <!-- Random reddit Number -->
+        <div class="panel panel-info"> 
+            <div class="panel-heading"><B>Get a random number using the reddit comment feed as the seed</B></div> 
+            <div class="panel-body"> 
+                <b>URL</b><BR>
+                http://www.randomnumberapi.com/api/v1.0/randomredditnumber<BR><BR>
+                <strong>Notes</strong><BR>This function uses the latest comments submitted to reddit as the seed for each number. 
+                So if you request 100 numbers 100 seeds will be generated from comments and a unique seed used for each number. 
+                The Idea behind this function is to generate random numbersbased on the "Free Will" of people generating 
+                truly random numbers.<BR><BR>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Option</th>
+                            <th scope="col">Discription</th>
+                            <th scope="col"><span class="label label-default">Default</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">min</th>
+                            <td>the minumum random number</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">max</th>
+                            <td>the maximum random number</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">count</th>
+                            <td>the number of random numbers to generate (Maximum of 100)</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                <b>Example</b><BR>
+                <div class="well">
+                    http://www.randomnumberapi.com/api/v1.0/randomredditnumber?min=100&max=1000&count=5
+                </div>
+                <b>Response:</b><BR>
+                    <div class="well">
+                        [389, 741, 959, 754, 916]
+                </div>
+            </div> 
+        </div>
+        <!-- End of Reddit Random Number -->
 
         <!-- Random String -->
         <div class="panel panel-info"> 

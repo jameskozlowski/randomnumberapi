@@ -12,6 +12,7 @@ RUN apk add --update git nano gcc musl-dev openrc \
     && pip install flask-restful \
     && pip install gevent \
     && dos2unix startup.sh
+    && git clone https://github.com/jameskozlowski/randomnumberapi.git /home/randomnumberapi
 
 EXPOSE 8080
-CMD ["/startup.sh"]
+CMD ["python3 /home/randomnumberapi/api.py"]

@@ -21,6 +21,6 @@ def home():
 
 if __name__ == '__main__':
     app.debug = True
-    from gevent.wsgi import WSGIServer
+    from gevent.pywsgi import WSGIServer
     http_server = WSGIServer(('', 8080), app)
     http_server.serve_forever()

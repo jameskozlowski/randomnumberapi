@@ -1,10 +1,13 @@
 from flask import Flask, render_template
 from flask_restful import Api
+from flask_cors import CORS
 from randomnumberapi import RandomNumberAPI
 from randomstringapi import RandomStringAPI
 from randomuuidapi import RandomUUIDAPI
 from randomredditnumberapi import RandomReditNumberAPI
+
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 

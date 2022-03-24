@@ -10,6 +10,7 @@ RUN apk add --update git nano gcc musl-dev openrc \
     && pip install flask \
     && pip install requests \
     && pip install flask-restful \
+    && pip install flask-cors \
     && pip install gevent \
     && dos2unix startup.sh
 
